@@ -404,6 +404,17 @@ const ObjectDetailPanel = ({
     },
     {
       action: () => {
+        window.location.href = `https://storage.vrcgta.jp/${bucketName}/${actualInfo.name}`;
+      },
+      label: "Anonymous Access",
+      disabled:
+        !!actualInfo.is_delete_marker ||
+        (objectType === "none" && !canGetObject),
+      icon: <PreviewIcon />,
+      tooltip: "Anonymous access this File",
+    },
+    {
+      action: () => {
         setLegalholdOpen(true);
       },
       label: "Legal Hold",
