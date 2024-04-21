@@ -415,6 +415,19 @@ const ObjectDetailPanel = ({
     },
     {
       action: () => {
+        navigator.clipboard.writeText(
+          `https://storage.vrcgta.jp/${bucketName}/${actualInfo.name}`,
+        );
+      },
+      label: "Copy Anonymous URL to clipboard",
+      disabled:
+        !!actualInfo.is_delete_marker ||
+        (objectType === "none" && !canGetObject),
+      icon: <PreviewIcon />,
+      tooltip: "Copy anonymous URL this File",
+    },
+    {
+      action: () => {
         setLegalholdOpen(true);
       },
       label: "Legal Hold",
